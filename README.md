@@ -1,2 +1,12 @@
-# csd-340
-Web Development with HTML and CSS coursework and assignments
+# \# CSD 340 Web Development with HTML and CSS
+
+# 
+
+# \## Contributors
+
+# 
+
+# \- Sue Sampson
+
+# \- Luis Cortez
+

@@ -1,0 +1,65 @@
+/*
+    Luis Cortez
+    08/23/2026
+    Module 3.3 Assignment
+*/
+
+h1 {
+    text-align: center;
+}
+
+.left {
+    width: 45%;
+    float: left;
+}
+
+.right {
+    width: 45%;
+    float: right;
+}
+
+h3 {
+    font-weight: 500;
+    margin: 20px 10px 10px 10px;
+}
+
+ol {
+    font-weight: 300;
+}
+
+.left {
+    border: 1px solid red;
+    border-radius: 15px;
+}
+
+.left ol {
+    padding: 10px;
+    list-style-position: inside;
+}
+
+.right {
+    border: 1px dashed red;
+    border-radius: 15px;
+}
+
+.right ol {
+    padding: 10px;
+    list-style-type: upper-roman;
+    list-style-position: inside;
+}
+
+.bottom {
+    width: 100%;
+    margin-top: 60%;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.bottom a {
+    float: right;
+    text-decoration: none;
+}
+
+.bottom a:hover {
+    text-decoration: underline;
+}

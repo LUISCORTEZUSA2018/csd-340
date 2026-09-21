@@ -36,9 +36,7 @@ h1 {
 }
 
 #container {
-    margin-top: 2%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin: 2% 5% 100px 5%;
     padding: 10px;
 }
 
@@ -63,9 +61,28 @@ h1 {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
+#movies {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#movies th {
+    background-color: #c44700;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+#movies td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
 footer {
     background-color: #c44700;
     position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
 }
@@ -85,20 +102,4 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-#movies {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-#movies th {
-    padding: 12px;
-    text-align: left;
-}
-
-#movies td {
-    border: 1px solid #ddd;
-    padding: 8px;
 }

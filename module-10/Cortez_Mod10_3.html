@@ -1,0 +1,82 @@
+<!--
+    Luis Cortez
+    October 3, 2026
+    Module 10.3 Assignment - JavaScript Part 2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSD 340 Web Development with HTML and CSS</title>
+
+    <script>
+        function changeTime() {
+            var image = document.getElementById("houstonTime");
+
+            if (image.src.includes("Houston_day.png")) {
+                image.src = "images/Houston_night.png";
+                image.alt = "Houston Downtown at night";
+            } else {
+                image.src = "images/Houston_day.png";
+                image.alt = "Houston Downtown during the day";
+            }
+        }
+
+        function changeSeason() {
+            var image = document.getElementById("houstonSeason");
+
+            if (image.src.includes("Houston_summer.png")) {
+                image.src = "images/Houston_winter.png";
+                image.alt = "Houston Downtown during winter";
+            } else {
+                image.src = "images/Houston_summer.png";
+                image.alt = "Houston Downtown during summer";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Assignment 10.3: JavaScript - Part 2</h1>
+
+    <h2>Houston: Day and Night</h2>
+
+    <div>
+        <img id="houstonTime"
+             src="images/Houston_day.png"
+             alt="Houston Downtown during the day"
+             width="500"
+             onclick="changeTime()">
+    </div>
+
+    <p>
+        Click the image to change Houston from day to night.
+    </p>
+
+    <h2>Houston: Summer and Winter</h2>
+
+    <div>
+        <img id="houstonSeason"
+             src="images/Houston_summer.png"
+             alt="Houston Downtown during summer"
+             width="500"
+             onclick="changeSeason()">
+    </div>
+
+    <p>
+        Click the image to change Houston from summer to winter.
+    </p>
+
+    <p>
+        <a href="../index.html">Back to Landing Page</a>
+    </p>
+
+</body>
+
+</html>

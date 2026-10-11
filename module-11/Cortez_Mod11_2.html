@@ -1,0 +1,262 @@
+
+<!--
+    Name: Luis Leonardo Cortez Velez
+    Date: October 11, 2026
+    Assignment: CSD340 Module 11.2 - JavaScript Exercise, Part 3
+
+    Description:
+    This webpage creates an interactive To-Do List using
+    JavaScript arrays and functions. Users can add tasks,
+    delete the last task, and sort tasks alphabetically.
+    The webpage displays the updated list after each action.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSD 340 Web Development with HTML and CSS</title>
+
+    <!-- CSS styles for the To-Do List interface -->
+    <style>
+
+        /* General webpage appearance */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f5f9;
+            margin: 0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Main assignment heading */
+        h1 {
+            color: #234d70;
+        }
+
+        /* Container for the To-Do List application */
+        .container {
+            background-color: white;
+            max-width: 550px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Text input field */
+        input {
+            padding: 12px;
+            width: 85%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Button appearance */
+        button {
+            margin: 10px 5px;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2463a0;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #17466f;
+        }
+
+        /* Display area for tasks */
+        #taskList {
+            text-align: left;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Main heading required for Module 11.2 -->
+    <h1>Assignment 11.2: JavaScript - Part 3</h1>
+
+    <!-- Main To-Do List application -->
+    <div class="container">
+
+        <h2>My To-Do List</h2>
+
+        <!-- Instructions for the user -->
+        <p>
+            Enter a task and click Add.
+            Use Delete Last Entry to remove the last task.
+            Click Sort to arrange tasks alphabetically.
+        </p>
+
+        <!-- Input field for entering new tasks -->
+        <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter a task"
+        >
+
+        <!-- Buttons that execute JavaScript functions -->
+        <div>
+
+            <button onclick="addTask()">
+                Add
+            </button>
+
+            <button onclick="deleteLastTask()">
+                Delete Last Entry
+            </button>
+
+            <button onclick="sortTasks()">
+                Sort
+            </button>
+
+        </div>
+
+        <!-- Area where the array contents are displayed -->
+        <h3>Things To Do</h3>
+
+        <ol id="taskList"></ol>
+
+    </div>
+
+    <!--
+        JavaScript Section
+
+        This section uses an array to store tasks.
+        Functions are used to add, delete, sort, and
+        display tasks. Browser alerts provide feedback
+        to the user after each operation.
+    -->
+    <script>
+
+        // Create an empty array to store the To-Do List items.
+        let tasks = [];
+
+        /*
+            Function: addTask()
+
+            Purpose:
+            Retrieve the task entered by the user,
+            validate the input, add it to the array,
+            display an alert, and update the task list.
+        */
+        function addTask() {
+
+            // Get the input field from the HTML document.
+            let input = document.getElementById("taskInput");
+
+            // Remove unnecessary spaces from the input.
+            let task = input.value.trim();
+
+            // Prevent users from adding empty tasks.
+            if (task === "") {
+                alert("Please enter a task.");
+                return;
+            }
+
+            // Add the new task to the end of the array.
+            tasks.push(task);
+
+            // Inform the user which task was added.
+            alert("Item: " + task +
+                  " Added as Item " + tasks.length);
+
+            // Clear the input field for the next task.
+            input.value = "";
+
+            // Display the updated array.
+            displayTasks();
+        }
+
+        /*
+            Function: deleteLastTask()
+
+            Purpose:
+            Remove the last element from the array
+            using the pop() method and display an
+            alert identifying the deleted task.
+        */
+        function deleteLastTask() {
+
+            // Check whether the array contains any tasks.
+            if (tasks.length === 0) {
+                alert("There are no tasks to delete.");
+                return;
+            }
+
+            // Remove the last element from the array.
+            let deletedTask = tasks.pop();
+
+            // Inform the user which task was deleted.
+            alert("Deleted item: " + deletedTask);
+
+            // Display the updated array.
+            displayTasks();
+        }
+
+        /*
+            Function: sortTasks()
+
+            Purpose:
+            Sort the array alphabetically and notify
+            the user that the sorting operation
+            has been completed.
+        */
+        function sortTasks() {
+
+            // Sort tasks alphabetically.
+            tasks.sort((a, b) => a.localeCompare(b));
+
+            // Notify the user that the array was sorted.
+            alert("The task list has been sorted.");
+
+            // Display the sorted array.
+            displayTasks();
+        }
+
+        /*
+            Function: displayTasks()
+
+            Purpose:
+            Display the current contents of the array
+            as an ordered list on the webpage.
+            This function is called after each change.
+        */
+        function displayTasks() {
+
+            // Locate the ordered list in the HTML document.
+            let list = document.getElementById("taskList");
+
+            // Clear previously displayed tasks.
+            list.innerHTML = "";
+
+            // Loop through each task in the array.
+            tasks.forEach(function(task) {
+
+                // Create a new HTML list item.
+                let item = document.createElement("li");
+
+                // Set the text of the list item.
+                item.textContent = task;
+
+                // Add the item to the displayed list.
+                list.appendChild(item);
+
+            });
+        }
+
+    </script>
+
+</body>
+</html>
